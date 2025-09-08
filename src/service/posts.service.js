@@ -1,6 +1,9 @@
-export function getAllPost(){
+import {readMyFile} from "../DAL/index.js"
 
+export function getAllPost(){
     
+    const data=readMyFile();
+
 }
 
 export function getPostBiId(id){
