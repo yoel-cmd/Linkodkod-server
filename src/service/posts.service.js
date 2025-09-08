@@ -1,21 +1,16 @@
-import {readMyFile} from "../DAL/index.js"
+import { readMyFile } from "../DAL/index.js";
 
-export function getAllPost(){
-    
-    const data=readMyFile();
-
+export async function getAllPost() {
+  const data = await readMyFile();
+  return data
 }
 
-export function getPostBiId(id){
-
-
-}
-export function updatePost(id){
-
+export function getPostBiId(id) {
 
 }
-export function deletePost(id){
-
+export function updatePost(id) {
 
 }
+export function deletePost(id) {
 
+}
