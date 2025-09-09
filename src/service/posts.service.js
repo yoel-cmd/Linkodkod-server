@@ -15,32 +15,19 @@ export async function PostBiId(id) {
   }
   return null;
 }
-export async function CraetPost(post) {
-    console.log("original post",post);
-    
+export async function CraetPost(post) {    
   const id = uuidv4();
-  console.log("id:",id);
-  
   const date = new Date();
   const showTime =
     date.getHours() + ":" + date.getMinutes() + ":" + date.getSeconds();
-    console.log("time is",showTime);
-    
-//   post.id = id;
-//   post.emoji = 0;
-//   post.time = showTime;
+
 const newPost= {
     ...post,
     id:id,
     emoji:0,
     time:showTime
 };
-console.log("new post:",newPost);
-
-
-  const res = await writeToFile(newPost);
-  console.log("whate beack of servise",res);
-  
+  const res = await writeToFile(newPost); 
   return res;
 }
 export async function updatePost(id) {}
