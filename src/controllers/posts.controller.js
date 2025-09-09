@@ -14,10 +14,10 @@ export async function getAllPosts(req, res) {
 export async function getPostById(req, res) {
   try {
     const id = req.params.id;
-    const post = await PostBiId(id);
-    if (!post) {
-      console.error("Post not found:", err);
-      return res.status(400).json(err);
+    const post = await PostBiId(id);  
+    if (!post) {     
+      console.error("Post not found:");
+      return res.status(400);
     }
     return res.json(post);
   } catch (err) {
