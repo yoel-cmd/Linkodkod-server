@@ -30,8 +30,6 @@ export async function addPost(req, res) {
   try {
     const data = req.body;
     const val = await CraetPost(data);
-    console.log("val of comtroler",val);
-    
     return res.status(201).json(val);
   } catch (error) {
     console.error("Error loading posts:", err);
