@@ -1,16 +1,18 @@
 import { readMyFile } from "../DAL/index.js";
 
-export async function getAllPost() {
+export async function AllPost() {
   const data = await readMyFile();
-  return data
+  return data;
 }
 
-export function getPostBiId(id) {
-
+export async function PostBiId(id) {
+  const data = await readMyFile();
+  const jsondata = JSON.parse(data);
+  const post = jsondata.find((p) => p.id === id);
+  if (post) {
+    return post;
+  }
+  return null
 }
-export function updatePost(id) {
-
-}
-export function deletePost(id) {
-
-}
+export async function updatePost(id) {}
+export async function deletePost(id) {}
