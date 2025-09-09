@@ -1,31 +1,34 @@
- [
-    {
-      "src": "http://localhost:3000/image/photo2.jpg",
-      "desc": "Hi, this is my first post, I'd love to know what you think of it.",
-      "emoji": 1,
-      "fullName": "yoel ider",
-      "time": "11:11"
-    },
-    {
-      "src": "http://localhost:3000/image/photo1.avif",
-      "desc": "This is a picture from our last trip together.😘",
-      "emoji": 2,
-      "fullName": "yoel ider",
-      "time": "19:12"
-    },
-    {
-      "src": "http://localhost:3000/image/photo4.jpg",
-      "desc": "Hi, this is my first post, I'd love to know what you think of it.",
-      "emoji": 3,
-      "fullName": "yoel ider",
-      "time": "17:22"
-    },
-    {
-      "src": "http://localhost:3000/image/photo3.jpg",
-      "desc": "Hi, this is my first post, I'd love to know what you think of it.",
-      "emoji": 4,
-      "fullName": "yoel ider",
-      "time": "10:40"
-    }
-   
-  ]
+[
+  {
+    "id": "1",
+    "src": "http://localhost:3000/image/photo2.jpg",
+    "desc": "Hi, this is my first post, I'd love to know what you think of it.",
+    "emoji": 1,
+    "fullName": "yoel ider",
+    "time": "11:11"
+  },
+  {
+    "id": "2",
+    "src": "http://localhost:3000/image/photo1.avif",
+    "desc": "This is a picture from our last trip together.😘",
+    "emoji": 2,
+    "fullName": "yoel ider",
+    "time": "19:12"
+  },
+  {
+    "id": "3",
+    "src": "http://localhost:3000/image/photo4.jpg",
+    "desc": "Hi, this is my first post, I'd love to know what you think of it.",
+    "emoji": 3,
+    "fullName": "yoel ider",
+    "time": "17:22"
+  },
+  {
+    "id": "4",
+    "src": "http://localhost:3000/image/photo3.jpg",
+    "desc": "Hi, this is my first post, I'd love to know what you think of it.",
+    "emoji": 4,
+    "fullName": "yoel ider",
+    "time": "10:40"
+  }
+]
