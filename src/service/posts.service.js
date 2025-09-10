@@ -13,7 +13,7 @@ export async function PostBiId(id) {
   }
   return null;
 }
-export async function createPost(post) {
+export async function creatPost(post) {
  const date = new Date();
   const showTime =
     date.getHours() + ":" + date.getMinutes() + ":" + date.getSeconds();
@@ -22,7 +22,7 @@ export async function createPost(post) {
      id: uuidv4(),
       emoji: 0,
        time:showTime,
-        ...post };   
+        ...post};   
   const data = await readAllPosts();
   data.push(newPost);
   await writeAllPosts(data);
