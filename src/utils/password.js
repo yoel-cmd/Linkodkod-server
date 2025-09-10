@@ -7,7 +7,7 @@ export async function hashPassword(password) {
 }
 export async function verifyPassword(password, userPaaword) {
   if (!userPaaword) return false;
-  if (bcrypt.compare(password, userPaaword)) {
+  if (password===userPaaword) {
     return true ;
   }
   return false;
