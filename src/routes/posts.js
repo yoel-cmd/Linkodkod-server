@@ -1,17 +1,10 @@
+// src/routes/posts.js
 import { Router } from "express";
-import {getAllPosts,getPostById,addPost,getAllUsers,addUser} from "../controllers/posts.controller.js"
-
-
+import { getAllPosts,getPostById,addPost,} from "../controllers/posts.controller.js";
+import { authMiddleware } from "../middlewares/auth.js";
 const router = Router();
 
-router.get("/post",getAllPosts);
-router.get("/post/:id",getPostById);
-router.post("/create-post",addPost);
-
-//----------------------------users---------------------------------
-router.get("/user",getAllUsers);
-router.post("/creat-user",addUser);
-
-
-
+router.post("/post", authMiddleware, getAllPosts);
+router.post("/post/:id", authMiddleware, getPostById);
+router.post("/create-post", authMiddleware, addPost);
 export default router;

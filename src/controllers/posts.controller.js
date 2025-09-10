@@ -1,63 +1,38 @@
-import { AllPost, PostBiId, CraetPost,AllUsers,CraetUser } from "../service/posts.service.js";
-
-//----------------------------post---------------------------------
-export async function getAllPosts(req, res) {
+// src/controllers/posts.controller.js
+import { getAll, PostBiId, creatPost } from "../service/posts.service.js";
+export async function getAllPosts(req, res, next) {
   try {
-    const data = await AllPost();
-
-    return res.json(data);
-  } catch (err) {
-    console.error("Error loading posts:", err);
-    return res.status(500).json(err);
+    const data = await getAll();
+    res.json(data);
+  } catch (e) {
+    next(e);
   }
 }
-
-export async function getPostById(req, res) {
+export async function getPostById(req, res, next) {
   try {
     const id = req.params.id;
+    console.log("id getpostbyid:",id);
     const post = await PostBiId(id);
     if (!post) {
-      console.error("Post not found:");
-      return res.status(400);
+      return res.status(404).json({ok: false,error: { code: "POST_NOT_FOUND", message: "Post not found" },});
     }
-    return res.json(post);
-  } catch (err) {
-    console.error("Error loading posts:", err);
-    return res.status(500).json(err);
+    res.json(post);
+  } catch (e) {
+    next(e);
   }
 }
 
-export async function addPost(req, res) {
+export async function addPost(req, res, next) {
   try {
-    const data = req.body;
-    const val = await CraetPost(data);
-    return res.status(201).json(val);
-  } catch (error) {
-    console.error("Error loading posts:", err);
-    return res.status(500).json(err);
-  }
-}
-
-
-//----------------------------users---------------------------------
-export async function getAllUsers(req, res) {
-  try {
-    const data = await AllUsers();
-
-    return res.json(data);
-  } catch (err) {
-    console.error("Error loading posts:", err);
-    return res.status(500).json(err);
-  }
-}
-
-export async function addUser(req, res) {
-  try {
-    const data = req.body;
-    const val = await CraetUser(data);
-    return res.status(201).json(val);
-  } catch (error) {
-    console.error("Error loading posts:", err);
-    return res.status(500).json(err);
+    const body = req.body || {};
+    const post={
+        src: body.src,
+        desc: body.desc,
+        fullName: body.fullName
+    };
+    const creat = await creatPost(post);
+    res.status(201).json(creat);
+  } catch (e) {
+    next(e);
   }
 }
