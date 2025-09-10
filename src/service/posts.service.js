@@ -1,11 +1,16 @@
-import { readMyFile, writeToFile } from "../DAL/index.js";
-import { v4 as uuidv4 } from "uuid";
+import {
+  readMyFile,
+  writeToFile,
+  writeToFileUsers,
+  readMyFileUsers,
+} from "../DAL/index.js";import { v4 as uuidv4 } from "uuid";
+
+//----------------------------posts---------------------------------
 
 export async function AllPost() {
   const data = await readMyFile();
   return data;
 }
-
 export async function PostBiId(id) {
   const data = await readMyFile();
   const jsondata = JSON.parse(data);
@@ -15,20 +20,40 @@ export async function PostBiId(id) {
   }
   return null;
 }
-export async function CraetPost(post) {    
+export async function CraetPost(post) {
   const id = uuidv4();
   const date = new Date();
   const showTime =
     date.getHours() + ":" + date.getMinutes() + ":" + date.getSeconds();
 
-const newPost= {
+  const newPost = {
     ...post,
-    id:id,
-    emoji:0,
-    time:showTime
-};
-  const res = await writeToFile(newPost); 
+    id: id,
+    emoji: 0,
+    time: showTime,
+  };
+  const res = await writeToFile(newPost);
   return res;
 }
-export async function updatePost(id) {}
-export async function deletePost(id) {}
+
+//----------------------------users---------------------------------
+export async function AllUsers() {
+  const data = await readMyFileUsers();
+  return data;
+}
+
+export async function CraetUser(user) {
+  const id = uuidv4();
+
+  const date = new Date();
+  const showTime =
+    date.getHours() + ":" + date.getMinutes() + ":" + date.getSeconds();
+
+  const newUser = {
+    ...user,
+    id: id,
+    time: showTime,
+  };
+  const res = await writeToFileUsers(newUser);
+  return res;
+}

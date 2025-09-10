@@ -13,3 +13,4 @@ export default function cors(req, res, next) {
 
   next();
 }
+
